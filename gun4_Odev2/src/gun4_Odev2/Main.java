@@ -17,8 +17,8 @@ public class Main {
 	    user1.setId(1);
 	    user1.setFirstName("Evin");
 	    user1.setLastName("Oðuz");
-	    user1.setDateOfBirth(LocalDate.of(1997, 7, 9));
-	    user1.setNationalityId("11286114814");
+	    user1.setDateOfBirth(LocalDate.of(1996, 7, 9));
+	    user1.setNationalityId("11286114828");
 
 		BaseCustomerManager customerNero=new NeroCustomerManager();
 		customerNero.save(user1);
