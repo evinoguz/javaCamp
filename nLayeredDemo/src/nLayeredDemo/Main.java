@@ -12,7 +12,7 @@ public class Main {
 		//Todo: Spring IoC ile çözülecek.
 		ProductService productService=new ProductManager(new HibernateProductDao(),
 				new JLoggerManagerAdapter());
-		Product product=new Product(2,3,"Elma",12,50);
+		Product product=new Product(2,1,"Elma",12,50);
 		productService.add(product);
 	}
 
