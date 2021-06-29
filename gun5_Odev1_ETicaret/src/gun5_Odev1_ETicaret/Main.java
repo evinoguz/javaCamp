@@ -2,6 +2,7 @@ package gun5_Odev1_ETicaret;
 
 import gun5_Odev1_ETicaret.business.abstracts.UserService;
 import gun5_Odev1_ETicaret.business.concretes.UserManager;
+import gun5_Odev1_ETicaret.core.GoogleEmailManagerAdapter;
 import gun5_Odev1_ETicaret.dataAccess.concretes.StudentUserDao;
 import gun5_Odev1_ETicaret.entities.concretes.User;
 
@@ -16,7 +17,7 @@ public class Main {
 		User user5=new User(5,"evin","oguz","evinoguz.b21@gmail.com","123");
 		User user6=new User(6,"evin","oguz","evinoguz.b21@gmail.com","123456");
 
-		UserService userService=new UserManager(new StudentUserDao());
+		UserService userService=new UserManager(new StudentUserDao(), new GoogleEmailManagerAdapter());
 		System.out.println("------------");
 		userService.signUp(user1);
 		userService.signUp(user2);
@@ -29,6 +30,9 @@ public class Main {
 		userService.signIn("oguz.b21@gmail.com","123456789");
 		userService.signIn("evinoguz.b21@gmail.com","1233333");
 		userService.signIn("evinoguz.b21@gmail.com","123456789");
+
+		System.out.println("------------");
+		userService.signUpWithGoogleAccount("batmanli.b21@gmail.com","123456789");
 		System.out.println("------------");
 
 	}

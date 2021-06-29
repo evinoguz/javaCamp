@@ -3,16 +3,18 @@ package gun5_Odev1_ETicaret.business.concretes;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import gun5_Odev1_ETicaret.business.abstracts.UserService;
+import gun5_Odev1_ETicaret.core.EmailService;
 import gun5_Odev1_ETicaret.dataAccess.abstracts.UserDao;
 import gun5_Odev1_ETicaret.entities.concretes.User;
 
 public class UserManager implements UserService{
 
 	private UserDao userDao;
-	
-	public UserManager(UserDao userDao) {
+	private EmailService emailService;
+	public UserManager(UserDao userDao,EmailService emailService) {
 		super();
 		this.userDao = userDao;
+		this.emailService = emailService;
 	}
 
 	@Override
@@ -82,8 +84,8 @@ public class UserManager implements UserService{
 	}
 
 	@Override
-	public void signUpWithGoogleAccount(String googleMail, String password) {
-		System.out.println("Uyari: '"+googleMail+"' google hesabi ile basarili bir sekilde giris yapilmistir.");
+	public void signUpWithGoogleAccount(String email, String password) {
+		this.emailService.signIn(email, password);
 	}
 
 }
